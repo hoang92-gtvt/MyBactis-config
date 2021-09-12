@@ -1,0 +1,35 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.springapp.mvc.mapper.IUserMapper" >
+    <resultMap id = "result" type = "UsersDemo">
+        <result property = "id" column = "ID"/>
+        <result property = "name" column = "NAME"/>
+        <result property = "password" column ="PASSWORD"/>
+        <result property = "time" column = "TIME"/>
+
+    </resultMap>
+
+    <select id = "findAll" resultMap="result" >
+        SELECT * FROM USERSDEMO;
+    </select>
+
+    <select id = "findById" parameterType = "long" resultMap = "result">
+        SELECT * FROM USERSDEMO WHERE ID = #{id};
+    </select>
+
+    <insert id="add" parameterType="UsersDemo">
+        insert into usersdemo (name, password) values(#{name}, #{password});
+    </insert>
+
+    <update id="update"  parameterType="UsersDemo">
+        update usersdemo set name=#{name}, password=#{password} where id=#{id};
+    </update>
+
+    <delete id="delete" parameterType="long" >
+        delete from usersdemo where id=#{id};
+    </delete>
+
+
+</mapper>
+

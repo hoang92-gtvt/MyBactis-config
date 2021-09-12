@@ -1,11 +1,10 @@
 package com.springapp.mvc.controller;
 
-import com.springapp.mvc.model.User;
+import com.springapp.mvc.model.UsersDemo;
 import com.springapp.mvc.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,7 +16,6 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
     @Autowired
     @Qualifier("userService") //this is to specify implementation class
@@ -32,8 +30,17 @@ public class UserController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView  listUsers1() {
         ModelAndView mav = new ModelAndView("list");
-        List<User> userList = userService.getAllUsers();
+        List<UsersDemo> userList = userService.getAllUsers();
         mav.addObject("list", userList);
+
+        return mav;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ModelAndView  findone(@PathVariable("id") int userId) {
+        ModelAndView mav = new ModelAndView("detail");
+        UsersDemo user = userService.getUser(userId);
+        mav.addObject("user", user);
 
         return mav;
     }
@@ -46,23 +53,23 @@ public class UserController {
     @RequestMapping(value = "/json",
             method = RequestMethod.GET,
             produces="application/json;charset=UTF-8")
-    public  List<User> listUsers() {
-        List<User> users = userService.getAllUsers();
+    public  List<UsersDemo> listUsers() {
+        List<UsersDemo> users = userService.getAllUsers();
         return users;
     }
 
-    @ResponseBody
-    @RequestMapping(value="/{userId}",
-            method = RequestMethod.GET,
-            produces="application/json;charset=UTF-8")
-    public User findUser(@PathVariable("userId") int userId) {
-        User user = userService.getUser(userId);
-        return user;
-    }
+//    @ResponseBody
+//    @RequestMapping(value="/{userId}",
+//            method = RequestMethod.GET,
+//            produces="application/json;charset=UTF-8")
+//    public Users findUser(@PathVariable("userId") int userId) {
+//        Users users = userService.getUser(userId);
+//        return users;
+//    }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addUser(@ModelAttribute("user") User user, BindingResult result) {
-        userService.addUser(user);
+    public String addUser(@ModelAttribute("user") UsersDemo usersDemo, BindingResult result) {
+        userService.addUser(usersDemo);
         return "redirect:/";
     }
     @RequestMapping(value = "/delete/{userId}", method = RequestMethod.PUT)

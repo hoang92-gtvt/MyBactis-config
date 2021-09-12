@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by Tian Wang on 2015/3/24.
  */
 
-public class User implements Serializable {
+public class UsersDemo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private int id;
@@ -18,17 +18,17 @@ public class User implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date time;
 
-    public User() {
+    public UsersDemo() {
         super();
     }
 
-    public User(String name, String password) {
+    public UsersDemo(String name, String password) {
         super();
         this.name = name;
         this.password = password;
     }
 
-    public User(Integer id, String name, String password, Date time) {
+    public UsersDemo(Integer id, String name, String password, Date time) {
         super();
         this.id = id;
         this.name = name;

@@ -17,8 +17,6 @@
 <h3>Duoi day se hien thi ten du lieu</h3>
 <c:forEach items="${list}" var="map">
     <h3>${map.name}</h3>
-    <h3>${map.name}</h3>
-    <h3>${map.password}</h3>
 </c:forEach>
 </body>
 </html>
