@@ -19,10 +19,16 @@
               <setting name="jdbcTypeForNull" value="OTHER" />
               <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString" />
        </settings>
+
        <typeAliases>
+
               <typeAlias type="com.springapp.mvc.model.UsersDemo" alias="UsersDemo"></typeAlias>
 
        </typeAliases>
+
+       <mappers>
+              <mapper resource="mapper/user_mapper.xml"></mapper>
+       </mappers>
 
 
 
