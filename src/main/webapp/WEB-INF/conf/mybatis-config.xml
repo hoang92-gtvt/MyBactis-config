@@ -3,27 +3,23 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-       <settings>
-              <setting name="cacheEnabled" value="true" />
-              <setting name="lazyLoadingEnabled" value="true" />
-              <setting name="aggressiveLazyLoading" value="false" />
-              <setting name="multipleResultSetsEnabled" value="true" />
-              <setting name="useColumnLabel" value="true" />
-              <setting name="useGeneratedKeys" value="false" />
-              <setting name="autoMappingBehavior" value="PARTIAL" />
-              <setting name="defaultExecutorType" value="SIMPLE" />
-              <setting name="defaultStatementTimeout" value="25000" />
-              <setting name="safeRowBoundsEnabled" value="false" />
-              <setting name="mapUnderscoreToCamelCase" value="false" />
-              <setting name="localCacheScope" value="SESSION" />
-              <setting name="jdbcTypeForNull" value="OTHER" />
-              <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString" />
-       </settings>
-       <typeAliases>
-              <typeAlias type="com.springapp.mvc.model.UsersDemo" alias="UsersDemo"></typeAlias>
 
+       <!--alias-->
+       <typeAliases>
+              <package name="com.springapp.mvc.model" />
        </typeAliases>
 
 
+       <mappers>
+
+<!--              <mapper resource="mapper/user_mapper.xml"/>-->
+              <mapper resource="mapper/user-mapper.xml" />
+
+       </mappers>
+
+
+
+ <!--      khong the tao 2 the mapper
+       Cung khong the tao 2 the mappers-->
 
 </configuration>

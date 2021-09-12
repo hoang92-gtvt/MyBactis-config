@@ -15,25 +15,26 @@ import java.util.List;
 @Service("userService")
 public class UserService implements IUserService {
     @Autowired
-    private IUserMapper mapper;
+    private IUserMapper mapper1;
+
 
     @Override
     public List<UsersDemo> getAllUsers() {
-        return mapper.findAll();
+        return mapper1.findAll();
     }
 
     @Override
     public UsersDemo getUser(long userId) {
-        return mapper.findById(userId);
+        return mapper1.findById(userId);
     }
 
     @Override
     public void addUser(UsersDemo usersDemo) {
-        mapper.add(usersDemo);
+        mapper1.add(usersDemo);
     }
 
     @Override
     public void deleteUser(long userId) {
-        mapper.delete(userId);
+        mapper1.delete(userId);
     }
 }
