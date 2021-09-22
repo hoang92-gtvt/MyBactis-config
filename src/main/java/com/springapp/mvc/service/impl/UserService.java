@@ -15,7 +15,7 @@ import java.util.List;
 @Service("userService")
 public class UserService implements IUserService {
     @Autowired
-    private IUserMapper mapper;
+    private UserMapper mapper;
 
     @Override
     public List<UsersDemo> getAllUsers() {
