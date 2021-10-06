@@ -20,10 +20,10 @@
 <!--        <property name="password" value="123456"/>-->
 <!--    </bean>-->
 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@localhost:1521:database2"/>
-        <property name="username" value="hr"/>
+    <bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
+        <property name="dataSourceName" value="ds"/>
+        <property name="URL" value="jdbc:oracle:thin:@localhost:1521:database2"/>
+        <property name="user" value="hr"/>
         <property name="password" value="h123"/>
     </bean>
 
